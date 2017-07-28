@@ -2,6 +2,10 @@ let roadApp = angular.module('RoadApp', ['ngRoute']);
 
 roadApp.config(($routeProvider) => {
 	$routeProvider
+		.when('/listings', {
+			templateUrl: 'listing.html',
+			controller: 'ListingController'
+		})
 		.when('/ca-route1', {
 			templateUrl: 'ca-route1.html',
 			controller: 'CaRoute1Controller'
@@ -11,6 +15,13 @@ roadApp.config(($routeProvider) => {
 			controller: 'Route66Controller'
 		})
 		.otherwise('/');
+});
+
+roadApp.controller('ListingController', function($scope){
+	$scope.listings = {
+		listing1: 'ca-route1',
+		listing2: 'route66'
+	}
 });
 
 roadApp.controller('CaRoute1Controller', function($scope){
